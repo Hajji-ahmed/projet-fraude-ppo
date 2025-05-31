@@ -1,183 +1,167 @@
-﻿Parfait Ahmed ! Voici une version **très détaillée** et **professionnelle** de ton `README.md` pour GitHub, adaptée à ton projet de détection de fraude en temps réel avec PPO, en tenant compte de la structure de ton code, des fonctionnalités et des visuels.
+Bien sûr Ahmed. Voici un **README professionnel, détaillé et sans emoji**, prêt à être ajouté à ton dépôt GitHub pour ton projet de détection de fraude en temps réel avec PPO :
 
 ---
 
-# 🔐 Système de Détection de Fraude en Temps Réel avec PPO
+# Système de Détection de Fraude en Temps Réel par PPO
+
+## 1. Présentation du Projet
+
+Ce projet vise à concevoir un système intelligent de détection de fraude financière en temps réel en utilisant un algorithme d’apprentissage par renforcement : **Proximal Policy Optimization (PPO)**.
+L'objectif est de permettre à un agent d'apprendre les schémas typiques des transactions frauduleuses et d’améliorer progressivement sa capacité de détection, tout en minimisant les faux positifs.
+
+Le système repose sur des données réelles de transactions financières labellisées (fraude / non fraude), et se structure en modules indépendants pour faciliter l’analyse, l'entraînement et l’évaluation du modèle.
 
 ---
 
-## 🧠 Objectif du Projet
+## 2. Objectifs
 
-Ce projet a pour but de développer un **système intelligent de détection de fraude en temps réel** dans les transactions financières. Il s'appuie sur l'algorithme d’apprentissage par renforcement **PPO (Proximal Policy Optimization)** pour apprendre des schémas de fraude à partir de données étiquetées.
-Il combine des **techniques de traitement de données**, de **feature engineering**, d'**apprentissage automatique** et d'**interface interactive avec Streamlit**.
-
----
-
-## 🚀 Cas d’Utilisation
-
-* 🏦 Institutions financières : détection en temps réel de fraudes bancaires.
-* 💳 Plateformes de paiement en ligne : sécurisation des transactions.
-* 📊 Analyse comportementale des utilisateurs.
+* Identifier et analyser les caractéristiques des transactions financières.
+* Appliquer des techniques de prétraitement et de feature engineering.
+* Former un agent PPO pour détecter les comportements frauduleux.
+* Évaluer les performances du modèle (précision, taux de faux positifs).
+* Développer une interface utilisateur simple pour tester les prédictions en temps réel.
 
 ---
 
-## 📌 Fonctionnalités Clés
+## 3. Architecture du Projet
 
-### 🔄 1. Prétraitement et Nettoyage des Données
-
-Module : `utils/data_processor.py`
-
-* Chargement de jeux de données brutes (CSV).
-* Nettoyage et transformation des colonnes : gestion des valeurs manquantes, normalisation.
-* Sauvegarde de `scalers` via `joblib`.
-
-📸 *Capture d’écran recommandée : exemple d'affichage des données après transformation.*
-
----
-
-### 🧪 2. Feature Engineering Avancé
-
-Module : `utils/feature_engineering.py`
-
-* Création de nouvelles caractéristiques : temps entre transactions, fréquence d’achats, etc.
-* Encodage des variables catégorielles (ex : `transaction_type`, `country`).
-* Séparation des données en entrainement/test.
-
-📸 *Capture suggérée : affichage des nouvelles features générées.*
-
----
-
-### 🤖 3. Modèle PPO pour la Détection de Fraude
-
-Module : `utils/ppo_model.py`
-
-* Implémentation d’un environnement personnalisé pour PPO.
-* Apprentissage de schémas de comportement frauduleux.
-* Détection dynamique et probabiliste des fraudes.
-
-📸 *Capture suggérée : graphe d’évolution du reward ou score PPO.*
-
----
-
-### 📈 4. Évaluation du Modèle
-
-Module : `utils/evaluation.py`
-
-* Calcul des métriques : Précision, Rappel, F1-score.
-* Analyse des faux positifs et faux négatifs.
-* Génération de matrices de confusion et courbes ROC.
-
-📸 *Capture suggérée : matrice de confusion ou rapport de classification.*
-
----
-
-### 📊 5. Visualisation Interactive des Résultats
-
-Module : `utils/visualization.py`
-
-* Graphiques dynamiques (histogrammes, pie charts).
-* Visualisation de la distribution des fraudes vs. transactions normales.
-* Affichage des performances du modèle.
-
-📸 *Capture suggérée : interface Streamlit avec graphiques.*
-
----
-
-### 💻 6. Interface Utilisateur (Streamlit)
-
-Fichier : `app.py`
-
-* Interface interactive pour charger les données, lancer le modèle, visualiser les prédictions.
-* Utilisation simple pour utilisateurs non techniques.
-
-📸 *Capture recommandée : UI Streamlit en action avec boutons, résultats visibles.*
-
----
-
-## 🗂️ Structure du Projet
+Le projet suit une architecture modulaire orientée vers la réutilisabilité du code.
 
 ```
 PROJET_ML2/
-├── app.py                        # Interface principale avec Streamlit
-├── data_scaler.joblib           # Scaler enregistré pour normalisation
-├── requirements.txt             # Liste des dépendances
-├── shema.txt                    # Schéma de la base de données
-├── .gitignore                   # Fichiers à ignorer dans Git
+│
 ├── utils/
-│   ├── data_processor.py        # Chargement et nettoyage des données
-│   ├── feature_engineering.py   # Création des nouvelles features
-│   ├── ppo_model.py             # Implémentation du PPO
-│   ├── evaluation.py            # Évaluation du modèle
-│   └── visualization.py         # Fonctions de visualisation
-├── assets/                      # Captures d’écran du projet
-│   ├── analyse_transactions.png
-│   ├── feature_engineering.png
-│   ├── ppo_model.png
-│   ├── evaluation_resultats.png
-│   └── interface_streamlit.png
-└── venv/                        # Environnement virtuel (non suivi par Git)
+│   ├── data_processor.py         # Chargement et nettoyage des données
+│   ├── evaluation.py             # Métriques d'évaluation du modèle
+│   ├── feature_engineering.py    # Création de nouvelles caractéristiques
+│   ├── ppo_model.py              # Entraînement PPO avec Stable Baselines3
+│   ├── visualization.py          # Graphiques et visualisation de données
+│
+├── app.py                        # Interface Streamlit pour tester le modèle
+├── data_scaler.joblib            # Scaler sauvegardé pour normalisation
+├── requirements.txt              # Dépendances Python
+├── shema.txt                     # Structure et description des données
+├── .gitignore                    # Fichiers/dossiers ignorés par Git
+└── venv/                         # Environnement virtuel Python
 ```
 
 ---
 
-## 🧰 Installation et Lancement
+## 4. Fonctionnalités du Système
+
+### 4.1 Prétraitement et Analyse Exploratoire
+
+* Chargement de jeux de données de transactions labellisées.
+* Nettoyage des données, traitement des valeurs manquantes, encodage des variables.
+* Visualisation des distributions (montant, pays, type de transaction...).
+
+*Capture d’écran proposée :* `assets/analyse_transactions.png`
+
+---
+
+### 4.2 Feature Engineering
+
+* Transformation de données temporelles.
+* Génération de nouvelles variables comportementales (fréquence, récence, etc.).
+* Standardisation des données avec sauvegarde du scaler.
+
+*Capture d’écran proposée :* `assets/feature_engineering.png`
+
+---
+
+### 4.3 Apprentissage avec PPO
+
+* Définition d’un environnement personnalisé pour l'agent PPO.
+* Implémentation de l’algorithme PPO via `Stable-Baselines3`.
+* Entraînement sur les épisodes simulés pour apprendre à détecter les fraudes.
+
+*Capture d’écran proposée :* `assets/ppo_model.png`
+
+---
+
+### 4.4 Évaluation du Modèle
+
+* Calcul des métriques : précision, rappel, F1-score, courbe ROC.
+* Analyse du taux de détection vs. taux de faux positifs.
+* Visualisation des performances.
+
+*Capture d’écran proposée :* `assets/evaluation_resultats.png`
+
+---
+
+### 4.5 Interface Utilisateur (Streamlit)
+
+* Interface conviviale permettant de charger des données et obtenir des prédictions en direct.
+* Visualisation en temps réel des résultats du modèle.
+
+*Capture d’écran proposée :* `assets/interface_streamlit.png`
+
+---
+
+## 5. Installation et Exécution
+
+### 5.1 Prérequis
+
+* Python 3.10 ou supérieur
+* pip
+
+### 5.2 Étapes
 
 ```bash
 # 1. Cloner le dépôt
-git clone https://github.com/votre-utilisateur/projet-fraude-ppo.git
-cd projet-fraude-ppo
+git clone https://github.com/nom-utilisateur/projet-ppo-fraude.git
+cd projet-ppo-fraude
 
 # 2. Créer un environnement virtuel
 python -m venv venv
-source venv/bin/activate     # Linux/macOS
-venv\Scripts\activate        # Windows
+source venv/bin/activate         # Sur Windows : venv\Scripts\activate
 
 # 3. Installer les dépendances
 pip install -r requirements.txt
 
-# 4. Lancer l'application Streamlit
+# 4. Lancer l'application
 streamlit run app.py
 ```
 
 ---
 
-## ✅ Exemple de Résultat
+## 6. Exemples de Données
 
-* **Précision** : 96.3%
-* **Taux de faux positifs** : 2.1%
-* **Temps de prédiction par transaction** : \~0.12s
+Le fichier `shema.txt` décrit les colonnes suivantes :
 
-📸 *Capture suggérée : résumé des performances ou dashboard final*
-
----
-
-## 👨‍💻 Équipe Projet
-
-| Nom                | Rôle                       |
-| ------------------ | -------------------------- |
-| Ayoub Lamkaddem    | Prétraitement & UI         |
-| Ahmed Hajji        | PPO & Intégration          |
-| Abdelmalek Belga   | Évaluation & Visualisation |
-| Aymane Bouabdallah | Feature Engineering        |
+* `timestamp` : Date et heure de la transaction
+* `customer_id` : Identifiant client
+* `merchant_id` : Identifiant marchand
+* `amount` : Montant de la transaction
+* `transaction_type` : Type (achat, retrait, virement…)
+* `country` : Pays d’origine de la transaction
+* `is_fraud` : Étiquette (0 = légitime, 1 = fraude)
 
 ---
 
-## 📚 Ressources Recommandées
+## 7. Auteurs
 
-* [Proximal Policy Optimization Paper (OpenAI)](https://arxiv.org/abs/1707.06347)
-* [Streamlit Documentation](https://docs.streamlit.io/)
-* [Stable-Baselines3](https://stable-baselines3.readthedocs.io/en/master/)
-* [Scikit-Learn Guide](https://scikit-learn.org/stable/user_guide.html)
+Projet réalisé dans le cadre d’un projet académique :
 
----
-
-## 📬 Contact
-
-Pour toute suggestion ou amélioration :
-📧 [hajji.ahmed@etudiant.univ-example.ma](mailto:hajji.ahmed@etudiant.univ-example.ma)
-🎯 N’hésitez pas à ouvrir une *Issue* ou un *Pull Request* !
+* Ayoub Lamkaddem
+* Ahmed Hajji
+* Abdelmalek Belga
+* Aymane Bouabdallah
 
 ---
 
-Souhaites-tu que je t’envoie ce fichier `README.md` prêt à copier-coller ou à télécharger ? Je peux aussi te proposer une version PDF. Tu veux aussi que je t’aide à générer les captures d’écran si tu m’envoies les aperçus de ton app ?
+## 8. Capture d’Écran à Prévoir
 
+Ajoutez vos captures d’écran dans le dossier `assets/` avec les noms suivants :
+
+* `analyse_transactions.png`
+* `feature_engineering.png`
+* `ppo_model.png`
+* `evaluation_resultats.png`
+* `interface_streamlit.png`
+
+Vous pouvez insérer ces captures dans le README pour enrichir la présentation visuelle du projet.
+
+---
+
+Souhaites-tu que je te crée ce fichier `README.md` prêt à l’emploi avec les liens de captures inclus et t’aide à le pousser sur GitHub ?
