@@ -1,7 +1,3 @@
-Bien sûr Ahmed. Voici un **README professionnel, détaillé et sans emoji**, prêt à être ajouté à ton dépôt GitHub pour ton projet de détection de fraude en temps réel avec PPO :
-
----
-
 # Système de Détection de Fraude en Temps Réel par PPO
 
 ## 1. Présentation du Projet
@@ -55,19 +51,11 @@ PROJET_ML2/
 * Nettoyage des données, traitement des valeurs manquantes, encodage des variables.
 * Visualisation des distributions (montant, pays, type de transaction...).
 
-*Capture d’écran proposée :* `assets/analyse_transactions.png`
-
----
-
 ### 4.2 Feature Engineering
 
 * Transformation de données temporelles.
 * Génération de nouvelles variables comportementales (fréquence, récence, etc.).
 * Standardisation des données avec sauvegarde du scaler.
-
-*Capture d’écran proposée :* `assets/feature_engineering.png`
-
----
 
 ### 4.3 Apprentissage avec PPO
 
@@ -75,9 +63,6 @@ PROJET_ML2/
 * Implémentation de l’algorithme PPO via `Stable-Baselines3`.
 * Entraînement sur les épisodes simulés pour apprendre à détecter les fraudes.
 
-*Capture d’écran proposée :* `assets/ppo_model.png`
-
----
 
 ### 4.4 Évaluation du Modèle
 
@@ -85,18 +70,11 @@ PROJET_ML2/
 * Analyse du taux de détection vs. taux de faux positifs.
 * Visualisation des performances.
 
-*Capture d’écran proposée :* `assets/evaluation_resultats.png`
-
----
-
 ### 4.5 Interface Utilisateur (Streamlit)
 
 * Interface conviviale permettant de charger des données et obtenir des prédictions en direct.
 * Visualisation en temps réel des résultats du modèle.
 
-*Capture d’écran proposée :* `assets/interface_streamlit.png`
-
----
 
 ## 5. Installation et Exécution
 
@@ -123,22 +101,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
----
-
-## 6. Exemples de Données
-
-Le fichier `shema.txt` décrit les colonnes suivantes :
-
-* `timestamp` : Date et heure de la transaction
-* `customer_id` : Identifiant client
-* `merchant_id` : Identifiant marchand
-* `amount` : Montant de la transaction
-* `transaction_type` : Type (achat, retrait, virement…)
-* `country` : Pays d’origine de la transaction
-* `is_fraud` : Étiquette (0 = légitime, 1 = fraude)
-
----
-
 ## 7. Auteurs
 
 Projet réalisé dans le cadre d’un projet académique :
@@ -150,15 +112,6 @@ Projet réalisé dans le cadre d’un projet académique :
 
 ---
 
-## 8. Capture d’Écran à Prévoir
-
-Ajoutez vos captures d’écran dans le dossier `assets/` avec les noms suivants :
-
-* `analyse_transactions.png`
-* `feature_engineering.png`
-* `ppo_model.png`
-* `evaluation_resultats.png`
-* `interface_streamlit.png`
 
 Vous pouvez insérer ces captures dans le README pour enrichir la présentation visuelle du projet.
 
