@@ -1,0 +1,8 @@
+streamlit>=1.0.0
+pandas
+numpy
+plotly
+scikit-learn
+stable-baselines3
+torch
+gym

@@ -1,0 +1,12 @@
+📂 projet_detection_fraude   
+├── 📂 .streamlit/  
+│   └── 📄 config.toml            # Configuration de Streamlit (port, thème, etc.)  
+├── 📂 utils/                     # Modules utilitaires
+│   ├── 📄 __init__.py            # Initialisation du package utils
+│   ├── 📄 data_processor.py      # Traitement et préparation des données
+│   ├── 📄 evaluation.py          # Métriques et évaluation du modèle
+│   ├── 📄 feature_engineering.py # Création et transformation de caractéristiques
+│   ├── 📄 ppo_model.py           # Implémentation du modèle PPO simplifié
+│   └── 📄 visualization.py       # Fonctions de visualisation et graphiques
+├── 📄 app.py                     # Application principale Streamlit
+└── 📄 requirements.txt           # Dépendances du projet
