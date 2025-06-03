@@ -73,7 +73,8 @@ PROJET_ML2/
 ### 4.5 Interface Utilisateur (Streamlit)
 
 * Interface conviviale permettant de charger des données et obtenir des prédictions en direct.
-* Visualisation en temps réel des résultats du modèle.
+* Visualisation en temps réel des résultats du modèle.![Uploading Capture d'écran 2025-06-02 131733.png…]()
+
 
 
 ## 5. Installation et Exécution
